@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FixIT Pro London – Ion Eremia. Professional Handyman & IT Support Technician serving businesses across London and surrounding areas. One contact. Every problem solved.">
+<meta name="keywords" content="handyman London, IT support London, business maintenance London, IT technician Hertfordshire, office maintenance, network setup London">
+<title>FixIT Pro London | Handyman & IT Support | Ion Eremia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & VARS ─────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:    #080f1c;
+  --navy2:   #0d1b2e;
+  --navy3:   #112240;
+  --orange:  #f07800;
+  --orange2: #ffaa33;
+  --blue:    #00aaff;
+  --blue2:   #0066cc;
+  --red:     #e03020;
+  --red2:    #ff6040;
+  --white:   #ffffff;
+  --grey:    #8899aa;
+  --light:   #e8edf4;
+  --card:    #0f1e33;
+  --ff-head: 'Bebas Neue', sans-serif;
+  --ff-cond: 'Barlow Condensed', sans-serif;
+  --ff-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-body);
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+/* ── NOISE TEXTURE ────────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* ── NAV ──────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(8, 15, 28, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s;
+}
+
+nav.scrolled {
+  box-shadow: 0 4px 40px rgba(0,0,0,0.6);
+}
+
+.nav-logo {
+  font-family: var(--ff-head);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--orange); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--navy) !important;
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-weight: 700 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--orange2) !important; color: var(--navy) !important; }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 5% 60px;
+}
+
+/* Animated grid background */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,170,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,170,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridDrift 20s linear infinite;
+}
+
+@keyframes gridDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* Diagonal split */
+.hero-split {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    rgba(240,120,0,0.07) 0%,
+    transparent 45%,
+    rgba(0,170,255,0.07) 100%
+  );
+}
+
+/* Glow blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.blob-orange { width: 600px; height: 600px; background: rgba(240,120,0,0.12); top: -200px; left: -100px; }
+.blob-blue   { width: 500px; height: 500px; background: rgba(0,120,255,0.12); bottom: -100px; right: -100px; }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: var(--ff-cond);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.2s forwards;
+}
+
+.hero-title {
+  font-family: var(--ff-head);
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+
+.hero-title .grad {
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange2) 40%, var(--blue) 70%, var(--blue2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 2.4rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.8rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 2px;
+  font-family: var(--ff-cond);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge-orange { border: 1px solid rgba(240,120,0,0.5); color: var(--orange); background: rgba(240,120,0,0.08); }
+.badge-blue   { border: 1px solid rgba(0,170,255,0.5); color: var(--blue);   background: rgba(0,170,255,0.08); }
+.badge-white  { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.04); }
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.8s forwards;
+}
+
+.btn-primary {
+  padding: 16px 36px;
+  background: var(--orange);
+  color: var(--navy);
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(240,120,0,0.3);
+}
+.btn-primary:hover {
+  background: var(--orange2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(240,120,0,0.4);
+}
+
+.btn-secondary {
+  padding: 16px 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* Hero scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.7s 1.2s forwards;
+}
+
+.scroll-hint span {
+  font-family: var(--ff-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 1.5px solid var(--grey);
+  border-bottom: 1.5px solid var(--grey);
+  transform: rotate(45deg);
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50%       { transform: rotate(45deg) translateY(6px); }
+}
+
+/* ── STATS BAR ────────────────────────────────────────────────────────── */
+#stats {
+  background: var(--card);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 5%;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--ff-head);
+  font-size: 2.8rem;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 4px;
+}
+
+/* ── SECTION COMMON ───────────────────────────────────────────────────── */
+section { padding: 100px 5%; }
+
+.section-label {
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--ff-head);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 3.5rem;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SERVICES ─────────────────────────────────────────────────────────── */
+#services {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%);
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  max-width: 1200px;
+}
+
+.services-col {
+  background: var(--card);
+  padding: 2.5rem;
+}
+
+.services-col:first-child {
+  border-top: 3px solid var(--orange);
+}
+
+.services-col:nth-child(2) {
+  border-top: 3px solid var(--blue);
+}
+
+.services-col:last-child {
+  border-top: 3px solid var(--red);
+}
+
+.col-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.col-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.col-icon.orange { background: rgba(240,120,0,0.15); }
+.col-icon.blue   { background: rgba(0,170,255,0.15); }
+.col-icon.red    { background: rgba(224,48,32,0.15); }
+
+.col-title {
+  font-family: var(--ff-cond);
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.col-title.orange { color: var(--orange); }
+.col-title.blue   { color: var(--blue); }
+.col-title.red    { color: var(--red2); }
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.service-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+.service-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.service-dot.orange { background: var(--orange); }
+.service-dot.blue   { background: var(--blue); }
+.service-dot.red    { background: var(--red2); }
+
+/* ── WHY ME ───────────────────────────────────────────────────────────── */
+#why {
+  background: var(--navy2);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+}
+
+.why-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.why-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-4px); }
+.why-card:hover::before { opacity: 1; }
+
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.why-title {
+  font-family: var(--ff-cond);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+
+.why-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.65;
+}
+
+/* ── ABOUT ────────────────────────────────────────────────────────────── */
+#about {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1100px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.about-text .highlight {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.about-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--orange);
+  padding: 2rem 2rem 2rem 2.5rem;
+}
+
+.about-card-title {
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.cert-item:last-child { border-bottom: none; }
+
+.cert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* ── COVERAGE ─────────────────────────────────────────────────────────── */
+#coverage {
+  background: var(--card);
+  text-align: center;
+}
+
+.coverage-inner { max-width: 800px; margin: 0 auto; }
+
+.coverage-areas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.area-tag {
+  padding: 8px 18px;
+  border: 1px solid rgba(0,170,255,0.3);
+  border-radius: 2px;
+  font-family: var(--ff-cond);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(0,170,255,0.05);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.area-tag:hover {
+  background: rgba(0,170,255,0.1);
+  border-color: rgba(0,170,255,0.6);
+}
+
+/* ── CONTACT ──────────────────────────────────────────────────────────── */
+#contact {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+  max-width: 1100px;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contact-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: rgba(240,120,0,0.1);
+  border: 1px solid rgba(240,120,0,0.25);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-family: var(--ff-cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 3px;
+}
+
+.contact-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Form */
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-group label {
+  font-family: var(--ff-cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  padding: 12px 14px;
+  color: var(--white);
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--orange);
+  background: rgba(240,120,0,0.04);
+}
+
+.form-group select option { background: var(--navy2); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-submit {
+  padding: 16px 36px;
+  background: var(--orange);
+  color: var(--navy);
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(240,120,0,0.25);
+  align-self: flex-start;
+}
+
+.form-submit:hover {
+  background: var(--orange2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(240,120,0,0.4);
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--grey);
+  font-style: italic;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────────────────── */
+footer {
+  background: #040a14;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: var(--ff-head);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--orange); }
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── ANIMATIONS ───────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: rgba(8,15,28,0.98);
+    padding: 2rem 5%;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .hamburger { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 540px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-secondary { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">FixIT Pro London</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-split"></div>
+  <div class="blob blob-orange"></div>
+  <div class="blob blob-blue"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">London & Surrounding Areas · Available Now</p>
+    <h1 class="hero-title">
+      One&nbsp;Contact.<br>
+      <span class="grad">Every&nbsp;Problem<br>Solved.</span>
+    </h1>
+    <p class="hero-sub">
+      Professional <strong>Handyman</strong>, <strong>IT Support Technician</strong> and <strong>Passive Fire Protection Operative</strong> for businesses of all sizes.
+      Stop managing multiple contractors — I handle it all, under one invoice.
+    </p>
+    <div class="hero-badges">
+      <span class="badge badge-orange">🔧 Handyman</span>
+      <span class="badge badge-blue">💻 IT Support</span>
+      <span class="badge" style="border:1px solid rgba(224,48,32,0.5);color:var(--red2);background:rgba(224,48,32,0.08);">🔥 Fire Protection</span>
+      <span class="badge badge-white">📍 London Based</span>
+      <span class="badge badge-white">⚡ Fast Response</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Consultation</a>
+      <a href="#services" class="btn-secondary">See All Services</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────────────────────────────────── -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">3<span style="color:var(--orange2)">in</span>1</div>
+      <div class="stat-label">Triple Service</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-label">What I Do</div>
+  <h2 class="section-title reveal">Three Trades.<br>One Professional.</h2>
+  <p class="section-sub reveal">Every service your business needs — maintenance, tech, and fire safety — handled by a single certified operative.</p>
+
+  <div class="services-grid reveal">
+    <!-- Handyman -->
+    <div class="services-col">
+      <div class="col-header">
+        <div class="col-icon orange">🔧</div>
+        <div>
+          <div class="col-title orange">Handyman Services</div>
+          <div style="font-size:0.8rem;color:var(--grey);margin-top:2px;">Physical maintenance & repairs</div>
+        </div>
+      </div>
+      <ul class="service-list">
+        <li><div class="service-dot orange"></div>Furniture assembly &amp; installation</li>
+        <li><div class="service-dot orange"></div>General property maintenance &amp; repairs</li>
+        <li><div class="service-dot orange"></div>Painting &amp; decorating</li>
+        <li><div class="service-dot orange"></div>Fixture &amp; fitting installation</li>
+        <li><div class="service-dot orange"></div>Shelving, racking, and storage systems</li>
+        <li><div class="service-dot orange"></div>Door &amp; lock repairs</li>
+        <li><div class="service-dot orange"></div>Plumbing basics &amp; leak fixes</li>
+        <li><div class="service-dot orange"></div>Office &amp; premises refurbishment support</li>
+        <li><div class="service-dot orange"></div>Emergency call-out available</li>
+      </ul>
+    </div>
+
+    <!-- IT -->
+    <div class="services-col">
+      <div class="col-header">
+        <div class="col-icon blue">💻</div>
+        <div>
+          <div class="col-title blue">IT Support Services</div>
+          <div style="font-size:0.8rem;color:var(--grey);margin-top:2px;">Technical setup, repair &amp; support</div>
+        </div>
+      </div>
+      <ul class="service-list">
+        <li><div class="service-dot blue"></div>Network setup &amp; configuration</li>
+        <li><div class="service-dot blue"></div>PC &amp; workstation setup</li>
+        <li><div class="service-dot blue"></div>Hardware repair &amp; replacement</li>
+        <li><div class="service-dot blue"></div>Wi-Fi &amp; router troubleshooting</li>
+        <li><div class="service-dot blue"></div>Windows OS installation &amp; support</li>
+        <li><div class="service-dot blue"></div>Cybersecurity basics &amp; antivirus</li>
+        <li><div class="service-dot blue"></div>Data backup &amp; recovery</li>
+        <li><div class="service-dot blue"></div>Remote desktop support</li>
+        <li><div class="service-dot blue"></div>On-site &amp; remote availability</li>
+      </ul>
+    </div>
+
+    <!-- Fire Protection -->
+    <div class="services-col">
+      <div class="col-header">
+        <div class="col-icon red">🔥</div>
+        <div>
+          <div class="col-title red">Passive Fire Protection</div>
+          <div style="font-size:0.8rem;color:var(--grey);margin-top:2px;">NVQ-certified fire stopping operative</div>
+        </div>
+      </div>
+      <ul class="service-list">
+        <li><div class="service-dot red"></div>Firestopping installation &amp; remediation</li>
+        <li><div class="service-dot red"></div>Intumescent sealant &amp; mastic application</li>
+        <li><div class="service-dot red"></div>Joint sealant application (NVQ L2 certified)</li>
+        <li><div class="service-dot red"></div>Passive fire protection surveys</li>
+        <li><div class="service-dot red"></div>Fire-rated penetration sealing</li>
+        <li><div class="service-dot red"></div>Compartmentation &amp; fire barrier work</li>
+        <li><div class="service-dot red"></div>IPAF — powered access for elevated work</li>
+        <li><div class="service-dot red"></div>Fire warden trained (Lesterose Builders)</li>
+        <li><div class="service-dot red"></div>Commercial &amp; residential projects</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ME ─────────────────────────────────────────────────────────────── -->
+<section id="why">
+  <div class="section-label">The Advantage</div>
+  <h2 class="section-title reveal">Why Businesses<br>Choose Me</h2>
+  <p class="section-sub reveal">What makes FixIT Pro London different from the rest.</p>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">📞</span>
+      <div class="why-title">One Point of Contact</div>
+      <p class="why-desc">No more chasing separate plumbers, IT companies, and electricians. One number, one person, every problem handled.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🧾</span>
+      <div class="why-title">One Invoice</div>
+      <p class="why-desc">Simpler admin for your business. Whether I fix your server or your leaking tap, it all comes on a single clean invoice.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">⚡</span>
+      <div class="why-title">Fast Local Response</div>
+      <p class="why-desc">Based in the London area, I can reach you quickly. Emergency call-outs available — because downtime costs money.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🎓</span>
+      <div class="why-title">Multi-Certified</div>
+      <p class="why-desc">9+ formal certifications across IT and trade — CompTIA A+, Microsoft Azure, Cisco CCENT, NVQ Passive Fire Protection, SSSTS, IPAF, and more.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">💼</span>
+      <div class="why-title">Business Focused</div>
+      <p class="why-desc">I work with businesses — small offices, retail shops, restaurants, GP practices, co-working spaces — not just domestic customers.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🤝</span>
+      <div class="why-title">Reliable & Transparent</div>
+      <p class="why-desc">Clear pricing, honest timelines, and no hidden fees. I turn up on time and I finish the job — every time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">Ion Eremia</h2>
+      <p>I'm a <span class="highlight">triple-certified professional</span> covering IT Support, Handyman services, and Passive Fire Protection — based in Borehamwood, serving businesses across London and surrounding areas since 2020.</p>
+      <p>On the <span class="highlight">IT side</span>, I hold CompTIA A+, Microsoft Azure Administrator Associate, Cisco CCENT, and a Level 2 Cybersecurity qualification. I've deployed and configured office networks, set up VPNs for remote workforces, and provided hands-on hardware and software support for businesses in Greater London.</p>
+      <p>On the <span class="highlight">construction and fire safety side</span>, I spent 5+ years at Lesterose Builders Ltd as a Mastic Applicator and Passive Fire Protection Operative — holding NVQ Level 2 in both Joint Sealant Application and Passive Fire Protection, plus SSSTS (CITB), IPAF, and Fire Warden certification.</p>
+      <p>I believe reliability is the most undervalued quality in a contractor. I show up. I finish the job. I communicate clearly. That's the FixIT Pro promise.</p>
+      <div style="margin-top:2rem;">
+        <a href="#contact" class="btn-primary">Work With Me</a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="about-card">
+        <div class="about-card-title">IT Certifications</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>CompTIA A+ — CompTIA (Jan 2022, exp. Jan 2028)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>Microsoft Azure Administrator Associate — Microsoft (Jul 2020, recertified)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>Cisco CCENT / ICND1 — Cisco (Nov 2018)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>NCFE Level 2 — Principles of Cyber Security (Jun 2022)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>IAO Level 2 Certificate in IT User Skills (ITQ) — Gloucestershire College</div>
+      </div>
+
+      <div class="about-card" style="margin-top:1rem;border-left-color:var(--red2)">
+        <div class="about-card-title">Trade & Fire Safety Certifications</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>NVQ Level 2 — Passive Fire Protection (NOCN, Jun 2023)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>NVQ Level 2 — Joint Sealant Application (NOCN, Apr 2024)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>SSSTS — Site Supervision Safety Training Scheme (CITB, May 2023, exp. May 2028)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>IPAF — Powered Access Licence</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>Fire Warden — Fire Safety Certificate (Lesterose Builders, Aug 2024)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--orange)"></div>Foundation Year Computing — Solent University (2024–2025)</div>
+      </div>
+
+      <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(240,120,0,0.05);border:1px solid rgba(240,120,0,0.2);border-radius:2px;">
+        <div style="font-family:var(--ff-cond);font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);margin-bottom:0.75rem;">Free First Consultation</div>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.6;">Not sure if I can help? I offer a <strong style="color:var(--orange)">free first-hour consultation</strong> for new business clients. Let's assess your needs together — no obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COVERAGE ────────────────────────────────────────────────────────────── -->
+<section id="coverage">
+  <div class="coverage-inner">
+    <div class="section-label">Service Area</div>
+    <h2 class="section-title reveal">Where I Operate</h2>
+    <p class="section-sub reveal" style="margin:0 auto 0;">Primarily serving Greater London and surrounding areas. Remote IT support available UK-wide.</p>
+    <div class="coverage-areas reveal">
+      <span class="area-tag">Central London</span>
+      <span class="area-tag">North London</span>
+      <span class="area-tag">South London</span>
+      <span class="area-tag">East London</span>
+      <span class="area-tag">West London</span>
+      <span class="area-tag">Hertfordshire</span>
+      <span class="area-tag">Borehamwood</span>
+      <span class="area-tag">Watford</span>
+      <span class="area-tag">Barnet</span>
+      <span class="area-tag">Enfield</span>
+      <span class="area-tag">Essex Borders</span>
+      <span class="area-tag">Remote IT: UK-Wide</span>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--grey);">Not sure if I cover your area? <a href="#contact" style="color:var(--orange);text-decoration:none;">Just ask — I'll let you know.</a></p>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title reveal">Let's Talk<br>Business</h2>
+      <p class="section-sub reveal" style="margin-bottom:2.5rem;">Ready to simplify your maintenance and IT? Get in touch and I'll get back to you within 24 hours.</p>
+
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon-wrap">📞</div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-val">07479 076591</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">fixitpro2026@outlook.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val">linkedin.com/in/ion-eremia</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">📍</div>
+          <div>
+            <div class="contact-label">Based In</div>
+            <div class="contact-val">London &amp; Hertfordshire, UK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith">
+          </div>
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" placeholder="Acme Ltd.">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@company.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+44 ...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">— Select a service —</option>
+            <option>Handyman / Maintenance</option>
+            <option>IT Support</option>
+            <option>Passive Fire Protection</option>
+            <option>Both — Handyman &amp; IT</option>
+            <option>All Three Services</option>
+            <option>Emergency Call-out</option>
+            <option>Ongoing Contract / Retainer</option>
+            <option>Not sure — just enquiring</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Briefly describe what you need..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(event)">Send Enquiry →</button>
+        <p class="form-note">* I'll respond within 24 hours. Free first consultation for new business clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">FixIT Pro London</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Ion Eremia · FixIT Pro London · All rights reserved</p>
+</footer>
+
+<!-- ── JS ─────────────────────────────────────────────────────────────────── -->
+<script>
+// Nav scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile nav
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit (demo)
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '✓ Enquiry Sent!';
+  btn.style.background = '#22c55e';
+  btn.style.boxShadow = '0 0 24px rgba(34,197,94,0.3)';
+  setTimeout(() => {
+    btn.textContent = 'Send Enquiry →';
+    btn.style.background = '';
+    btn.style.boxShadow = '';
+  }, 3000);
+}
+</script>
+</body>
+</html>
