@@ -20,6 +20,8 @@
   --orange2: #ffaa33;
   --blue:    #00aaff;
   --blue2:   #0066cc;
+  --red:     #e03020;
+  --red2:    #ff6040;
   --white:   #ffffff;
   --grey:    #8899aa;
   --light:   #e8edf4;
@@ -414,9 +416,9 @@ section { padding: 100px 5%; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2px;
-  max-width: 1100px;
+  max-width: 1200px;
 }
 
 .services-col {
@@ -428,8 +430,12 @@ section { padding: 100px 5%; }
   border-top: 3px solid var(--orange);
 }
 
-.services-col:last-child {
+.services-col:nth-child(2) {
   border-top: 3px solid var(--blue);
+}
+
+.services-col:last-child {
+  border-top: 3px solid var(--red);
 }
 
 .col-header {
@@ -454,6 +460,7 @@ section { padding: 100px 5%; }
 
 .col-icon.orange { background: rgba(240,120,0,0.15); }
 .col-icon.blue   { background: rgba(0,170,255,0.15); }
+.col-icon.red    { background: rgba(224,48,32,0.15); }
 
 .col-title {
   font-family: var(--ff-cond);
@@ -465,6 +472,7 @@ section { padding: 100px 5%; }
 
 .col-title.orange { color: var(--orange); }
 .col-title.blue   { color: var(--blue); }
+.col-title.red    { color: var(--red2); }
 
 .service-list {
   list-style: none;
@@ -493,6 +501,7 @@ section { padding: 100px 5%; }
 
 .service-dot.orange { background: var(--orange); }
 .service-dot.blue   { background: var(--blue); }
+.service-dot.red    { background: var(--red2); }
 
 /* ── WHY ME ───────────────────────────────────────────────────────────── */
 #why {
@@ -841,7 +850,6 @@ footer {
   }
   .hamburger { display: flex; }
   .services-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr 1fr; }
   .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -888,12 +896,13 @@ footer {
       <span class="grad">Every&nbsp;Problem<br>Solved.</span>
     </h1>
     <p class="hero-sub">
-      Professional <strong>Handyman</strong> and <strong>IT Support Technician</strong> for businesses of all sizes.
+      Professional <strong>Handyman</strong>, <strong>IT Support Technician</strong> and <strong>Passive Fire Protection Operative</strong> for businesses of all sizes.
       Stop managing multiple contractors — I handle it all, under one invoice.
     </p>
     <div class="hero-badges">
       <span class="badge badge-orange">🔧 Handyman</span>
       <span class="badge badge-blue">💻 IT Support</span>
+      <span class="badge" style="border:1px solid rgba(224,48,32,0.5);color:var(--red2);background:rgba(224,48,32,0.08);">🔥 Fire Protection</span>
       <span class="badge badge-white">📍 London Based</span>
       <span class="badge badge-white">⚡ Fast Response</span>
     </div>
@@ -913,20 +922,20 @@ footer {
 <div id="stats">
   <div class="stats-grid">
     <div class="stat-item">
-      <div class="stat-num">2<span style="color:var(--orange2)">in</span>1</div>
-      <div class="stat-label">Dual Service</div>
+      <div class="stat-num">3<span style="color:var(--orange2)">in</span>1</div>
+      <div class="stat-label">Triple Service</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Invoice Only</div>
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">24h</div>
       <div class="stat-label">Response Time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Satisfaction Goal</div>
     </div>
   </div>
 </div>
@@ -934,8 +943,8 @@ footer {
 <!-- ── SERVICES ──────────────────────────────────────────────────────────── -->
 <section id="services">
   <div class="section-label">What I Do</div>
-  <h2 class="section-title reveal">Two Trades.<br>One Professional.</h2>
-  <p class="section-sub reveal">Every service your business needs — maintenance and tech — handled by a single certified technician.</p>
+  <h2 class="section-title reveal">Three Trades.<br>One Professional.</h2>
+  <p class="section-sub reveal">Every service your business needs — maintenance, tech, and fire safety — handled by a single certified operative.</p>
 
   <div class="services-grid reveal">
     <!-- Handyman -->
@@ -981,6 +990,28 @@ footer {
         <li><div class="service-dot blue"></div>On-site &amp; remote availability</li>
       </ul>
     </div>
+
+    <!-- Fire Protection -->
+    <div class="services-col">
+      <div class="col-header">
+        <div class="col-icon red">🔥</div>
+        <div>
+          <div class="col-title red">Passive Fire Protection</div>
+          <div style="font-size:0.8rem;color:var(--grey);margin-top:2px;">NVQ-certified fire stopping operative</div>
+        </div>
+      </div>
+      <ul class="service-list">
+        <li><div class="service-dot red"></div>Firestopping installation &amp; remediation</li>
+        <li><div class="service-dot red"></div>Intumescent sealant &amp; mastic application</li>
+        <li><div class="service-dot red"></div>Joint sealant application (NVQ L2 certified)</li>
+        <li><div class="service-dot red"></div>Passive fire protection surveys</li>
+        <li><div class="service-dot red"></div>Fire-rated penetration sealing</li>
+        <li><div class="service-dot red"></div>Compartmentation &amp; fire barrier work</li>
+        <li><div class="service-dot red"></div>IPAF — powered access for elevated work</li>
+        <li><div class="service-dot red"></div>Fire warden trained (Lesterose Builders)</li>
+        <li><div class="service-dot red"></div>Commercial &amp; residential projects</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1008,8 +1039,8 @@ footer {
     </div>
     <div class="why-card reveal">
       <span class="why-icon">🎓</span>
-      <div class="why-title">Dual Certified</div>
-      <p class="why-desc">Formally certified in both IT and trade disciplines — not a jack of all trades, but a master of both.</p>
+      <div class="why-title">Multi-Certified</div>
+      <p class="why-desc">9+ formal certifications across IT and trade — CompTIA A+, Microsoft Azure, Cisco CCENT, NVQ Passive Fire Protection, SSSTS, IPAF, and more.</p>
     </div>
     <div class="why-card reveal">
       <span class="why-icon">💼</span>
@@ -1030,8 +1061,9 @@ footer {
     <div class="about-text reveal">
       <div class="section-label">About Me</div>
       <h2 class="section-title" style="margin-bottom:1.5rem;">Ion Eremia</h2>
-      <p>I'm a <span class="highlight">dual-qualified Handyman and IT Support Technician</span> based in London. I started FixIT Pro London because I noticed a gap — most businesses need both physical maintenance and technical support, but managing two separate contractors is expensive and frustrating.</p>
-      <p>My background spans both disciplines: I've studied computing at Solent University and have hands-on experience in IT infrastructure, networks, and hardware repair. On the handyman side, I've worked on office fitouts, painting, furniture assembly, and general maintenance for businesses across London.</p>
+      <p>I'm a <span class="highlight">triple-certified professional</span> covering IT Support, Handyman services, and Passive Fire Protection — based in Borehamwood, serving businesses across London and surrounding areas since 2020.</p>
+      <p>On the <span class="highlight">IT side</span>, I hold CompTIA A+, Microsoft Azure Administrator Associate, Cisco CCENT, and a Level 2 Cybersecurity qualification. I've deployed and configured office networks, set up VPNs for remote workforces, and provided hands-on hardware and software support for businesses in Greater London.</p>
+      <p>On the <span class="highlight">construction and fire safety side</span>, I spent 5+ years at Lesterose Builders Ltd as a Mastic Applicator and Passive Fire Protection Operative — holding NVQ Level 2 in both Joint Sealant Application and Passive Fire Protection, plus SSSTS (CITB), IPAF, and Fire Warden certification.</p>
       <p>I believe reliability is the most undervalued quality in a contractor. I show up. I finish the job. I communicate clearly. That's the FixIT Pro promise.</p>
       <div style="margin-top:2rem;">
         <a href="#contact" class="btn-primary">Work With Me</a>
@@ -1040,12 +1072,22 @@ footer {
 
     <div class="reveal">
       <div class="about-card">
-        <div class="about-card-title">Qualifications & Training</div>
-        <div class="cert-item"><div class="cert-dot"></div>Foundation Year — Computing, Solent University</div>
-        <div class="cert-item"><div class="cert-dot"></div>IT Certification — [Add your IT cert here]</div>
-        <div class="cert-item"><div class="cert-dot"></div>IT Certification — [Add your IT cert here]</div>
-        <div class="cert-item"><div class="cert-dot"></div>Trade Certification — [Add your trade cert]</div>
-        <div class="cert-item"><div class="cert-dot"></div>Trade Certification — [Add your trade cert]</div>
+        <div class="about-card-title">IT Certifications</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>CompTIA A+ — CompTIA (Jan 2022, exp. Jan 2028)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>Microsoft Azure Administrator Associate — Microsoft (Jul 2020, recertified)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>Cisco CCENT / ICND1 — Cisco (Nov 2018)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>NCFE Level 2 — Principles of Cyber Security (Jun 2022)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--blue)"></div>IAO Level 2 Certificate in IT User Skills (ITQ) — Gloucestershire College</div>
+      </div>
+
+      <div class="about-card" style="margin-top:1rem;border-left-color:var(--red2)">
+        <div class="about-card-title">Trade & Fire Safety Certifications</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>NVQ Level 2 — Passive Fire Protection (NOCN, Jun 2023)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>NVQ Level 2 — Joint Sealant Application (NOCN, Apr 2024)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>SSSTS — Site Supervision Safety Training Scheme (CITB, May 2023, exp. May 2028)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>IPAF — Powered Access Licence</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--red2)"></div>Fire Warden — Fire Safety Certificate (Lesterose Builders, Aug 2024)</div>
+        <div class="cert-item"><div class="cert-dot" style="background:var(--orange)"></div>Foundation Year Computing — Solent University (2024–2025)</div>
       </div>
 
       <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(240,120,0,0.05);border:1px solid rgba(240,120,0,0.2);border-radius:2px;">
@@ -1093,14 +1135,14 @@ footer {
           <div class="contact-icon-wrap">📞</div>
           <div>
             <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-val">+44 XXXX XXXXXX</div>
+            <div class="contact-val">07479 076591</div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon-wrap">✉️</div>
           <div>
             <div class="contact-label">Email</div>
-            <div class="contact-val">your.email@gmail.com</div>
+            <div class="contact-val">fixitpro2026@outlook.com</div>
           </div>
         </div>
         <div class="contact-item">
@@ -1148,7 +1190,9 @@ footer {
             <option value="">— Select a service —</option>
             <option>Handyman / Maintenance</option>
             <option>IT Support</option>
+            <option>Passive Fire Protection</option>
             <option>Both — Handyman &amp; IT</option>
+            <option>All Three Services</option>
             <option>Emergency Call-out</option>
             <option>Ongoing Contract / Retainer</option>
             <option>Not sure — just enquiring</option>
